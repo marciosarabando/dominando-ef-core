@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using src.Data;
+using src.FuncoesDidaticas;
 
 namespace EFCore_DevIO
 {
@@ -8,16 +9,10 @@ namespace EFCore_DevIO
     {
         static void Main(string[] args)
         {
-            using var db = new ApplicationContext();
+            //ClassMigrations.GetMigrations();
 
-            //db.Database.Migrate();
-
-            var migracoes = db.Database.GetPendingMigrations();
-
-            foreach (var migracao in migracoes)
-            {
-                Console.WriteLine(migracao);
-            }
+            //OutrosBancoDados.SetupPostgres();
+            OutrosBancoDados.AddPessoaSQLite();
 
             Console.WriteLine("Hello World!");
         }
